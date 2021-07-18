@@ -8,25 +8,31 @@ public class PlayerMovement : MonoBehaviour
     private float movementSpeed;
 
     private Vector2 initialPosition;
-
+    private int currentLane; //0-left, 1-center, 2-right
 
     public GameObject leftTarget;
     public GameObject rightTarget;
+    public GameObject centerTarget;
     private Transform leftTargetPosition;
     private Transform rightTargetPosition;
+    private Transform centerTargetPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        //set player position to center on start
+        currentLane = 1;
+
         //Initialise the left and right positions for movement
         leftTargetPosition = leftTarget.transform;
         rightTargetPosition = rightTarget.transform;
+        centerTargetPosition = centerTarget.transform;
         Debug.Log("current position: " + transform.position);
         Debug.Log("left position: " + leftTargetPosition.position);
         Debug.Log("right position: " + rightTargetPosition.position);
 
-        leftTargetPosition.position = transform.position - new Vector3(1.3f, 0, 0);
-        rightTargetPosition.position = transform.position + new Vector3(1.3f, 0, 0);
+        //leftTargetPosition.position = transform.position - new Vector3(1.3f, 0, 0);
+        //rightTargetPosition.position = transform.position + new Vector3(1.3f, 0, 0);
 
         Debug.Log("current position: " + transform.position);
         Debug.Log("left position: " + leftTargetPosition.position);
@@ -49,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
                 initialPosition = touch.position;
                 Debug.Log("touched screen");
             }
-
-            else if (touch.phase == TouchPhase.Moved)
+            
+            else if (touch.phase == TouchPhase.Ended)
             {
                 //Debug.Log("swiped screen");
                 //get the direction of the touch swipe
@@ -76,15 +82,35 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveLeft()
     {
-        movementSpeed = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, leftTargetPosition.position, movementSpeed);
+        //movementSpeed = speed * Time.deltaTime;
+        //transform.position = Vector3.MoveTowards(transform.position, leftTargetPosition.position, movementSpeed);
+        if (currentLane == 2)
+        {
+            transform.position = centerTargetPosition.position;
+            currentLane = 1;
+        }
+        else
+        {
+            transform.position = leftTargetPosition.position;
+            currentLane = 0;
+        }
         Debug.Log("swiped screen left");
     }
 
     void MoveRight()
     {
-        movementSpeed = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, rightTargetPosition.position, movementSpeed);
+        //movementSpeed = speed * Time.deltaTime;
+        //transform.position = Vector3.MoveTowards(transform.position, rightTargetPosition.position, movementSpeed);
+        if (currentLane == 0)
+        {
+            transform.position = centerTargetPosition.position;
+            currentLane = 1;
+        }
+        else
+        {
+            transform.position = rightTargetPosition.position;
+            currentLane = 2;
+        }
         Debug.Log("swiped screen right");
     }
 }
