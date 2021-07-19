@@ -415,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -464,10 +464,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f7dcbc7fcc66b40b85ed3a309b2fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 3654878282717509269, guid: 1dffa49fd06bcdc429d623c8ab8291d4, type: 3}
+  - {fileID: 8165402717035767210, guid: 12be6a27abc18954e9697f333cf7b205, type: 3}
+  - {fileID: 1908191960723032362, guid: df8281aa7fefbd249a4b5f588c3ceec0, type: 3}
+  - {fileID: 367035515004787559, guid: 2e946b98a47c82b419540ae7b2975f34, type: 3}
+  - {fileID: 6966528874142155173, guid: e7f4ef04ec8c71442bcf34c558f681bb, type: 3}
+  - {fileID: 2113331361387861807, guid: e09ead3692f6fba47ae47f52da8b943f, type: 3}
+  - {fileID: 3677502916392079603, guid: 93ba35bade9d8ce4d95d71fae1733bfc, type: 3}
+  - {fileID: 5321886215039310045, guid: dcdf02dea38250a45b4913edc597507b, type: 3}
+  - {fileID: 4982110096959575110, guid: 5312bebeb143bb3448c8d515e42c7465, type: 3}
+  - {fileID: 2310574534031108915, guid: a31f12136ab68fb47816edc86ab0ce78, type: 3}
+  - {fileID: 5835167568385147695, guid: 22689ac1ee67a76498719a519f10922a, type: 3}
+  - {fileID: 7461498677964434478, guid: 88c9276a5f43d1b4eb31d352d73ae206, type: 3}
+  - {fileID: 5324343983983977653, guid: b26b180d26a13ee48bf71e57b04449f9, type: 3}
+  - {fileID: 1037301690395322313, guid: 3991b2f2c2de4b94c9fff5f4e6866bed, type: 3}
+  - {fileID: 5452000689627558156, guid: 5197ae5a7c6c26c48a459201580a6fd8, type: 3}
+  - {fileID: 4367713119288167915, guid: 8d6af22473dde5d4aa564b019a4cc69d, type: 3}
+  - {fileID: 4367713119288167915, guid: 8d6af22473dde5d4aa564b019a4cc69d, type: 3}
+  - {fileID: 4367713119288167915, guid: 8d6af22473dde5d4aa564b019a4cc69d, type: 3}
+  - {fileID: 4367713119288167915, guid: 8d6af22473dde5d4aa564b019a4cc69d, type: 3}
+  - {fileID: 4367713119288167915, guid: 8d6af22473dde5d4aa564b019a4cc69d, type: 3}
   nextTile: {fileID: 4310121463948642975, guid: 988faffc3dffa514ab120796c41b70ff, type: 3}
-  zDistanceNextTile: 0
-  tileLength: 8.65
-  numberOfTiles: 3
   playerTransform: {fileID: 699849717}
 --- !u!1 &963194225
 GameObject:

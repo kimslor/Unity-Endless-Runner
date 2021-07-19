@@ -4,34 +4,29 @@ using UnityEngine;
 
 public class TileGeneration : MonoBehaviour
 {
+    public List<GameObject> Tiles = new List<GameObject>();
     public GameObject nextTile;
 
-    public float zDistanceNextTile = 0f;
-    public float tileLength = 8.65f;
-    public int numberOfTiles = 10;
+    private float zDistanceNextTile = 0f;
+    private float tileLength = 2.1625f;
+    private int numberOfTiles = 40;
     private List<GameObject> activeTiles = new List<GameObject>();
 
     public Transform playerTransform;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
-        SpawnTile();
+        for (int i = 0; i < numberOfTiles; i++)
+        {
+            SpawnTile();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         float totalLengthOfTiles = numberOfTiles * tileLength;
-        if (playerTransform.position.z - (2*tileLength)> zDistanceNextTile - totalLengthOfTiles)
+        if (playerTransform.position.z - (4*tileLength)> zDistanceNextTile - totalLengthOfTiles)
         {
             SpawnTile();
             DeleteTile();
@@ -40,6 +35,8 @@ public class TileGeneration : MonoBehaviour
 
     public void SpawnTile()
     {
+        int index = Random.Range(0, Tiles.Count);
+        nextTile = Tiles[index];
         GameObject go = Instantiate(nextTile, transform.forward * zDistanceNextTile, transform.rotation);
         activeTiles.Add(go);
         zDistanceNextTile += tileLength;
