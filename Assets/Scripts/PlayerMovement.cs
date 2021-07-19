@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5;
-    private float movementSpeed;
 
     private Vector2 initialPosition;
     private int currentLane; //0-left, 1-center, 2-right
@@ -27,19 +26,6 @@ public class PlayerMovement : MonoBehaviour
         leftTargetPosition = leftTarget.transform;
         rightTargetPosition = rightTarget.transform;
         centerTargetPosition = centerTarget.transform;
-        Debug.Log("current position: " + transform.position);
-        Debug.Log("left position: " + leftTargetPosition.position);
-        Debug.Log("right position: " + rightTargetPosition.position);
-
-        //leftTargetPosition.position = transform.position - new Vector3(1.3f, 0, 0);
-        //rightTargetPosition.position = transform.position + new Vector3(1.3f, 0, 0);
-
-        Debug.Log("current position: " + transform.position);
-        Debug.Log("left position: " + leftTargetPosition.position);
-        Debug.Log("right position: " + rightTargetPosition.position);
-
-        //initial the movementSpeed
-        movementSpeed = speed * Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -53,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
             if (touch.phase ==  TouchPhase.Began)
             {
                 initialPosition = touch.position;
-                Debug.Log("touched screen");
             }
             
             else if (touch.phase == TouchPhase.Ended)
@@ -94,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
             transform.position = leftTargetPosition.position;
             currentLane = 0;
         }
-        Debug.Log("swiped screen left");
     }
 
     void MoveRight()
@@ -111,6 +95,5 @@ public class PlayerMovement : MonoBehaviour
             transform.position = rightTargetPosition.position;
             currentLane = 2;
         }
-        Debug.Log("swiped screen right");
     }
 }
